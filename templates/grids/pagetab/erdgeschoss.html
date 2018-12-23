@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--
+  /* FHEM tablet ui */
+  /*
+   * UI builder framework for FHEM
+   *
+   * Version: 2.5.*
+   * URL: https://github.com/knowthelist/fhem-tablet-ui
+   *
+   * Copyright (c) 2015-2017 Mario Stephan <mstephan@shared-files.de>
+   * Under MIT License (http://www.opensource.org/licenses/mit-license.php)
+   *
+   * - create a new folder named 'tablet' in /<fhem-path>/www
+   * - copy all files incl. sub folders into /<fhem-path>/www/tablet
+   * - add 'define TABLETUI HTTPSRV ftui ./www/tablet Tablet' in fhem.cfg
+   * - Tadaaa! A new fhem ui in http://<fhem-url>:8083/fhem/tablet/
+   */
+   -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Debug-Nachrichten konfigurieren -->
+  <meta name="debug" content="5">
+  <meta name="toast_position" content="top-right">
+
+  <!-- define your personal style here, it wont be overwritten  -->
+  <!-- link rel="stylesheet" href="css/fhem-green-ui.css" / -->
+  <link rel="stylesheet" href="ftui/css/fhem-tablet-ui-user.css" />
+
+  <script src="ftui/js/fhem-tablet-ui.js" defer></script>
+
+
+  <!-- Remove this line to enable for usage with WebViewControl
+          <script defer>var wvcDevices = {'12345': 'Tablet'}; var wvcUserCssFile="webviewcontrol.css"</script>
+          <script src="../pgm2/cordova-2.3.0.js" defer></script>
+          <script src="../pgm2/webviewcontrol.js" defer></script>
+          <!-- End for WebViewControl -->
+
+  <title>FHEM-Tablet-UI</title>
+</head>
+
+<body>
+  <div class="gridster">
+    <ul>
+      <li data-row="1" data-col="1" data-sizex="1" data-sizey="5" data-template="ftui/menu.html"></li>
+      <li data-row="1" data-col="2" data-sizex="2" data-sizey="2">
+        <header>ESSZIMMER</header>
+        <div class="sheet">
+          <div class="row">
+            <div class="cell">
+              <div data-type="thermostat" data-device="10_EG_Esszimmer_HzgThermostat_Clima" data-valve="ValvePosition"></div>
+              <span>Normal</span>
+            </div>
+            <div class="cell">
+              <div data-type="thermostat" data-device="10_EG_Esszimmer_Wand_HzgThermostat_Clima" data-valve="ValvePosition"></div>
+              <span>Wand</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="cell">
+              <div data-type="circlemenu">
+                <ul>
+                  <li>
+                    <div data-type="symbol" data-device="10_EG_Esszimmer_Rollladen" data-limits='["0|off","[12]*[0-9]","[34][0-9]","[56][0-9]","[78][0-9]","([9][0-9]|100|on)"]'
+                      data-colors='["#FFFFFF","#666666","#999999","#BBBBBB","#DDDDDD","#FFFFFF"]' data-icons='["oa-fts_shutter_100","oa-fts_shutter_80","oa-fts_shutter_60","oa-fts_shutter_40","oa-fts_shutter_20","oa-fts_shutter_10"]'></div>
+                  </li>
+                  <li>
+                    <div data-type="push" data-device="10_EG_Esszimmer_Rollladen" data-background-icon="" data-icon="oa-fts_shutter_10"></div>
+                  </li>
+                  <li>
+                    <div data-type="push" data-device="10_EG_Esszimmer_Rollladen" data-background-icon="" data-icon="oa-fts_shutter_100"></div>
+                  </li>
+                  <li>
+                    <div data-type="push" data-device="10_EG_Esszimmer_Rollladen" data-background-icon="" data-icon="fa-arrow-up"></div>
+                  </li>
+                  <li>
+                    <div data-type="push" data-device="10_EG_Esszimmer_Rollladen" data-background-icon="" data-icon="fa-arrow-down"></div>
+                  </li>
+                  <li>
+                    <div data-type="push" data-device="10_EG_Esszimmer_Rollladen" data-background-icon="" data-icon="fa-stop-circle"></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="cell"></div>
+          </div>
+        </div>
+      </li>
+      <li data-row="1" data-col="3" data-sizex="3" data-sizey="2">
+        <header>WOHNZIMMER</header>
+        <div class="sheet">
+          <div class="row">
+            <div class="cell" data-type="thermostat" data-device="10_EG_Wohnzimmer_HzgThermostat_Erker_Nord_Clima" data-valve="ValvePosition"></div>
+            <div class="cell" data-type="thermostat" data-device="10_EG_Wohnzimmer_HzgThermostat_Erker_Sued_Clima" data-valve="ValvePosition"></div>
+            <div class="cell" data-type="thermostat" data-device="10_EG_Wohnzimmer_HzgThermostat_Westen_Clima" data-valve="ValvePosition"></div>
+          </div>
+          <div class="row">
+            <div class="cell">
+              <div data-template="/fhem/ftui/templates/devices/rolladen.html" data-parameter='{"deviceName":"10_EG_WohnZimmer_Rollladen_Erker_Nord"}'></div>
+              <span>Rollladen
+                <br/>Erker Nord</span>
+            </div>
+            <div class="cell">
+              <div data-template="ftui/templates/devices/rolladen.html" data-parameter='{"deviceName":"10_EG_WohnZimmer_Rollladen_Erker_Sued"}'></div>
+              <span>Rollladen
+                <br/>Erker Süd</span>
+            </div>
+            <div class="cell">
+              <div data-template="ftui/templates/devices/rolladen.html" data-parameter='{"deviceName":"10_EG_WohnZimmer_Rollladen_Westen"}'></div>
+              <span>Rollladen
+                <br/>Westen</span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li data-row="1" data-col="4" data-sizex="2" data-sizey="2">
+        <header>1x2 - 2x2</header>
+        <div class="sheet">
+          <div class="row">
+            <div class="cell" />
+          </div>
+        </div>
+      </li>
+      <li data-row="2" data-col="2" data-sizex="1" data-sizex="2">
+        <header>2x2 - 2x2</header>
+        <div class="sheet">
+          <div class="row">
+            <div class="cell" />
+          </div>
+        </div>
+      </li>
+      <li data-row="2" data-col="3" data-sizex="2" data-sizey="2">
+        <header>2x3 - 2x2</header>
+        <div class="sheet">
+          <div class="row">
+            <div class="cell" />
+          </div>
+        </div>
+      </li>
+      <li data-row="2" data-col="4" data-sizex="2" data-sizey="2">
+        <header>2x4 - 2x2</header>
+        <div class="sheet">
+          <div class="row">
+            <div class="cell" />
+          </div>
+        </div>
+      </li>
+      <li data-row="2" data-col="5" data-sizex="2" data-sizey="2">
+        <header>2x4 - 2x2</header>
+        <div class="sheet">
+          <div class="row">
+            <div class="cell" />
+          </div>
+        </div>
+      </li>
+      <li data-row="3" data-col="2" data-sizex="7" data-sizey="1">
+        <div class="sheet">
+          <div class="row">
+            <div class="cell" />
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>
